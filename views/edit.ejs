@@ -1,0 +1,38 @@
+<% include partials/header %>
+
+<div class="ui main text container segment">
+    <h4 class="ui dividing huge header">Edit <%= editBlog.title %></h4>
+    
+    <form action="/blogs/<%= editBlog._id %>?_method=PUT" method="POST" id="edit-form" class="ui form">
+        <div class="field">
+            <label for="title">
+                What's this blog about?
+            </label>
+            <div class="form-input">
+                <input id="title" name="blog[title]" placeholder="blog title" value="<%= editBlog.title %>" required>
+                <span class="error"></span>
+            </div>
+        </div>
+        <div class="field">
+            <label for="img-src">
+                Have an image?
+            </label>
+            <div class="form-input">
+                <input id="img-src" name="blog[image]" placeholder="Enter image scr"  value="<%= editBlog.image %>">
+                <span class="error"></span>
+            </div>
+        </div>
+        <div class="field">
+            <label for="body">
+                What does it say?
+            </label>
+            <div class="form-input">
+                <textarea id="body" name="blog[body]" required><%= editBlog.body %></textarea>
+            </div>
+        </div>
+        <button class="ui black button" onclick="formSubmit(event);">Submit</button>
+    </form>
+</div>
+
+<% include partials/footer %>
+<script type="text/javascript" src="/js/form.js"></script>

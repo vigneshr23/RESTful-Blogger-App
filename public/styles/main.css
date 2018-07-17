@@ -1,0 +1,21 @@
+.container {
+    
+}
+.blogs .img-content {
+    width: 52em;
+    height: 100%;
+}
+.blogs .img-content img {
+    width: 100%;
+    height: auto;
+}
+
+.container .image>img {
+    width: 100%;
+    height: auto;
+}
+
+
+.ui.form .field.error span.error {
+    color: #9f3a38;
+}

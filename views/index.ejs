@@ -1,0 +1,40 @@
+<% include ./partials/header %>
+
+<div class="ui text container">
+    <h1 class="heading">
+        Showing all blogs</span>
+    </h1>
+
+    <div class="ui divided items">
+    <% blogs.forEach(function(blog, i) { %>
+        <div class="item" id="blog-<%= i %>" data-blogid="<%= blog._id %>">
+            <div class="content">
+                <h4 class="blog-title header"><a href="/blogs/<%= blog._id %>" title="go to <%= blog.title %>" style="color: inherit;"><%= blog.title %></a></h4>
+                <div class="meta">
+                    <p class="created"><%= blog.created.toDateString() %></p>
+                </div>
+                <div class="image">
+                    <img src="<%= blog.image %>" title="<%= blog.title %>" alt="<%= blog.title %>" >
+                </div>
+                <div class="blog-content">
+                    <% 
+                        var bodySummary;
+                        if(blog.body.length > 200) {
+                        bodySummary = blog.body.slice(0, 200);
+                        bodySummary+= '  ...'; 
+                        } else {
+                            bodySummary = blog.body;
+                        }
+                    %>
+                    <%= bodySummary %>
+                </div>
+                <div class="extra">
+                    <a href="/blogs/<%= blog._id %>">Read more</a>.
+                </div>
+            </div>
+        </div>
+    <% }) %>
+    </div>
+
+</div>
+<% include ./partials/footer %>
